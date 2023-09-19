@@ -1,0 +1,10 @@
+bin
+obj
+.vs
+*.user
+.idea
+Nugets
+
+/EFCore.UtilExtensions.Tests/testsettings.local.json
+!*.csproj
+!*.png
