@@ -1,0 +1,12 @@
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\bin\Debug\net6.0\EFCore.UtilExtensions.deps.json
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\bin\Debug\net6.0\EFCore.UtilExtensions.dll
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\bin\Debug\net6.0\EFCore.UtilExtensions.pdb
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.csproj.AssemblyReference.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.AssemblyInfoInputs.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.AssemblyInfo.cs
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.csproj.CoreCompileInputs.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.dll
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\refint\EFCore.UtilExtensions.dll
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\EFCore.UtilExtensions.pdb
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net6.0\ref\EFCore.UtilExtensions.dll

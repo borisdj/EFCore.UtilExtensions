@@ -1,0 +1,6 @@
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping_EFCore.UtilExtensions.Tests
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\obj\Debug\net6.0\EFCore.UtilExtensions.Tests.csproj.AssemblyReference.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\obj\Debug\net6.0\EFCore.UtilExtensions.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\obj\Debug\net6.0\EFCore.UtilExtensions.Tests.AssemblyInfoInputs.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\obj\Debug\net6.0\EFCore.UtilExtensions.Tests.AssemblyInfo.cs
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions.Tests\obj\Debug\net6.0\EFCore.UtilExtensions.Tests.csproj.CoreCompileInputs.cache

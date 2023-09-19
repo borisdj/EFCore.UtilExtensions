@@ -1,0 +1,5 @@
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net8.0\EFCore.UtilExtensions.csproj.AssemblyReference.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net8.0\EFCore.UtilExtensions.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net8.0\EFCore.UtilExtensions.AssemblyInfoInputs.cache
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net8.0\EFCore.UtilExtensions.AssemblyInfo.cs
+C:\Projects\EFCore.UtilExtensions\EFCore.UtilExtensions\obj\Debug\net8.0\EFCore.UtilExtensions.csproj.CoreCompileInputs.cache
