@@ -7,9 +7,9 @@ using System.Reflection;
 
 namespace EFCore.UtilExtensions;
 
-public class DataAnnotationsExtended
+public static class DataAnnotationsExtended
 {
-    protected void ConfigureExtendedAnnotations(ModelBuilder modelBuilder)
+    public static void ConfigureExtendedAnnotations(this ModelBuilder modelBuilder)
     {
         var entityTypes = modelBuilder.Model.GetEntityTypes();
         foreach (var entityType in entityTypes)
@@ -117,13 +117,13 @@ public class DataAnnotationsExtended
         //modelBuilder.Entity<Block>().Property(a => a.NetVolume).HasColumnType("decimal(18, 3)");
     }
 
-    protected IEnumerable<ForeignKeyExtensionAttribute> GetForeignKeyExtensionAttributes(IMutableEntityType entityType, IMutableProperty property)
+    public static IEnumerable<ForeignKeyExtensionAttribute> GetForeignKeyExtensionAttributes(IMutableEntityType entityType, IMutableProperty property)
     {
         var propertyInfo = GetPropertyInfo(entityType, property);
         return propertyInfo?.GetCustomAttributes<ForeignKeyExtensionAttribute>();
     }
 
-    private PropertyInfo GetPropertyInfo(IMutableEntityType entityType, IMutableProperty property)
+    public static PropertyInfo GetPropertyInfo(IMutableEntityType entityType, IMutableProperty property)
     {
         if (entityType == null)
         {
