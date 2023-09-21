@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection.Emit;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EFCore.UtilExtensions;
 
-public static class UtilConvention
+public static class UnPluralize
 {
     public static void RemovePluralizingTableNameConvention(this ModelBuilder modelBuilder)
     {

@@ -37,8 +37,8 @@ namespace EFCore.UtilExtensions.Test
                     Price = 10 * i,
                     ItemCategoryId = itemCategory.Id,
                     ItemHistories = new List<ItemHistory> { 
-                        new ItemHistory { /*ItemHistoryId = Guid.NewGuid(),*/ Price = 0 }, 
-                        new ItemHistory { /*ItemHistoryId = Guid.NewGuid(),*/ Price = 10 * i, Remark = "Init" } }
+                        new ItemHistory { ItemHistoryId = Guid.NewGuid(), Price = 0 }, 
+                        new ItemHistory { ItemHistoryId = Guid.NewGuid(), Price = 10 * i, Remark = "Init" } }
                 };
                 entities.Add(entity);
             }

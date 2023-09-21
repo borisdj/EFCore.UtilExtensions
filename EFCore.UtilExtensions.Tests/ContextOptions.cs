@@ -8,8 +8,6 @@ public static class ContextOptions
 {
     static SqlType _databaseType;
 
-    // TODO: Pass DbService through all the GetOptions methods as a parameter and eliminate this property so the automated tests
-    // are thread safe
     public static SqlType DatabaseType
     {
         get => _databaseType;
@@ -31,23 +29,11 @@ public static class ContextOptions
     {
         var optionsBuilder = new DbContextOptionsBuilder<TDbContext>();
 
-        //if (dbServerType == SqlType.SqlServer)
-        //{
         var connectionString = GetSqlServerConnectionString(databaseName);
 
-        // ALTERNATIVELY (Using MSSQLLocalDB):
-        //var connectionString = $@"Data Source=(localdb)\MSSQLLocalDB;Database={databaseName};Trusted_Connection=True;MultipleActiveResultSets=True";
-
-        //optionsBuilder.UseSqlServer(connectionString); // Can NOT Test with UseInMemoryDb (Exception: Relational-specific methods can only be used when the context is using a relational)
-        //optionsBuilder.UseSqlServer(connectionString, opt => opt.UseNetTopologySuite()); // NetTopologySuite for Geometry / Geometry types
         optionsBuilder.UseSqlServer(connectionString, opt =>
         {
         });
-        //}
-        //else
-        //{
-        //    throw new NotSupportedException($"Database {dbServerType} is not supported. Only SQL Server and SQLite are Currently supported.");
-        //}
 
         if (dbInterceptors?.Any() == true)
         {

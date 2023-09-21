@@ -27,6 +27,7 @@ public class TestContext : DbContext
         modelBuilder.RemovePluralizingTableNameConvention();
 
         modelBuilder.ConfigureExtendedAnnotations();
+
         // FluentAPI equivalent of Native and Extended Annotations:
         //modelBuilder.Entity<Item>().Property(x => x.Active).HasDefaultValue();
     }
@@ -39,7 +40,7 @@ public class ItemCategory
     [Column(nameof(ItemCategory) + nameof(Id))]
     public int Id { get; set; }
 
-    //[Required] // not need, is based on property nullability
+    //[Required] // not needed, is based on property nullability
     [MaxLength(50)]
     [UniqueIndex("U1")]
     public string Name { get; set; } = null!;
@@ -65,13 +66,13 @@ public class Item
     [Column("Description")]
     public string? CustomDescription { get; set; }
 
-    [DecimalType(20, 4)] // default is (18, 2)
+    [Precision(20, 4)]
     public decimal? Price { get; set; }
 
     [DefaultValue(true)]
     public bool Active { get; set; }
 
-    [ForeignKeyExtension(DeleteBehavior.Cascade)]
+    [ForeignKeyExtension(DeleteBehavior.NoAction)]
     public int? ItemCategoryId { get; set; }
     public virtual ItemCategory? Category { get; set; }
 
@@ -88,6 +89,7 @@ public class ItemHistory
     public int ItemId { get; set; }
     public virtual Item Item { get; set; } = null!;
 
+    //default Precision is (18, 2)
     public decimal Price { get; set; }
 
     public string? Remark { get; set; }

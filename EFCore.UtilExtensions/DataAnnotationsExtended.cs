@@ -14,16 +14,13 @@ public static class DataAnnotationsExtended
         var entityTypes = modelBuilder.Model.GetEntityTypes();
         foreach (var entityType in entityTypes)
         {
-            //if (entityType.IsOwned())
-            //    continue;
-
             var indexAttributeGroupsProperties = new Dictionary<string, List<string>>();
             var uniqueIndexAttributeGroupsProperties = new Dictionary<string, List<string>>();
 
             foreach (var property in entityType.GetProperties())
             {
                 // [Index()]
-                var indexAttribute = (IndexExtensionAttribute)property.PropertyInfo?.GetCustomAttributes(typeof(IndexExtensionAttribute), true).FirstOrDefault(); //entityType.ClrType.GetMembers().Where(a => a.IsDefined(typeof(IndexAttribute)))
+                var indexAttribute = property.PropertyInfo?.GetCustomAttributes(typeof(IndexExtensionAttribute), true).FirstOrDefault() as IndexExtensionAttribute; //entityType.ClrType.GetMembers().Where(a => a.IsDefined(typeof(IndexAttribute)))
                 if (indexAttribute != null)
                 {
                     if (indexAttribute.Group == null)
@@ -44,7 +41,7 @@ public static class DataAnnotationsExtended
                 }
 
                 // [UniqueIndex()]
-                var uniqueIndexAttribute = (UniqueIndexAttribute)property.PropertyInfo?.GetCustomAttributes(typeof(UniqueIndexAttribute), true).FirstOrDefault(); //entityType.ClrType.GetMembers().Where(a => a.IsDefined(typeof(UniqueIndexAttribute)))
+                var uniqueIndexAttribute = property.PropertyInfo?.GetCustomAttributes(typeof(UniqueIndexAttribute), true).FirstOrDefault() as UniqueIndexAttribute; //entityType.ClrType.GetMembers().Where(a => a.IsDefined(typeof(UniqueIndexAttribute)))
                 if (uniqueIndexAttribute != null)
                 {
                     if (uniqueIndexAttribute.Group == null)
@@ -80,20 +77,6 @@ public static class DataAnnotationsExtended
                     modelBuilder.Entity(entityType.ClrType).Property(property.Name).HasDefaultValueSql(sql);
                 }
 
-                // default decimal precision
-                if (property.ClrType == typeof(decimal) || property.ClrType == typeof(decimal?))
-                {
-                    if (entityType.IsOwned())
-                    {
-                        //modelBuilder.Entity<TransportInfo>().OwnsOne("CarrierInvoice", "CarrierInvoice");
-                        //modelBuilder.Entity<TransportInfo>().OwnsOne(entityType.GetTableName(), entityType.GetTableName()).Property(property.Name).HasColumnType(DecimalTypeDefaultPrecision);
-                    }
-                    else
-                    {
-                        //modelBuilder.Entity(entityType.ClrType).Property(property.Name).HasColumnType(DecimalTypeDefaultPrecision);
-                    }
-                }
-
                 // [ForeignKeyExtension(DeleteBehavior.Restrict)]
                 var foreignKeysExtension = GetForeignKeyExtensionAttributes(entityType, property);
                 if (foreignKeysExtension != null && foreignKeysExtension.Any())
@@ -113,11 +96,9 @@ public static class DataAnnotationsExtended
                 modelBuilder.Entity(entityType.ClrType).HasIndex(uniqueIndexAttributeGroup.Value.ToArray()).IsUnique();
             }
         }
-
-        //modelBuilder.Entity<Block>().Property(a => a.NetVolume).HasColumnType("decimal(18, 3)");
     }
 
-    public static IEnumerable<ForeignKeyExtensionAttribute> GetForeignKeyExtensionAttributes(IMutableEntityType entityType, IMutableProperty property)
+    public static IEnumerable<ForeignKeyExtensionAttribute>? GetForeignKeyExtensionAttributes(IMutableEntityType entityType, IMutableProperty property)
     {
         var propertyInfo = GetPropertyInfo(entityType, property);
         return propertyInfo?.GetCustomAttributes<ForeignKeyExtensionAttribute>();
