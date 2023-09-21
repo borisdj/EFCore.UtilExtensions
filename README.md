@@ -15,8 +15,8 @@ are made to avoid using FluentAPI and keep all Db configs in a single place on E
 | `[Column()]`  | `[MaxLength(255)]`      |
 | `[Required]`  | `[Precision(20, 4)]`    |
 | `[NotMapped]` | `[ForeignKey(FkName)]`  |
-| `[ForeignKeyExtension(DeleteBehavior/.NoAction)]` | extends ForeignKey attribute by adding option to set DeleteBehavior |
-| `                                   .NoAction` | sometimes needed to avoid fk cascade multiple paths and cycles) |
+| `[ForeignKeyExtension(DeleteBehavior.)]`| extends FK attribute, adds option to set DeleteBehavior         |
+| `             DeleteBehavior.NoAction`  | sometimes needed to avoid fk cascade multiple paths and cycles) |
 
 `[Index()]` - enables configuring Index on one or several columns  
 `[UniqueIndex()]` - enables configuring Unique Index on one or several columns  
