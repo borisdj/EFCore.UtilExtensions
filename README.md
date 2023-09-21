@@ -1,5 +1,5 @@
 # EFCore.UtilExtensions
-Several useful addons for EF
+Several useful addons for EF  
 Data Annotations with extra attributes, Audit Info config, Generics
 
 **FEATURES:**
