@@ -3,7 +3,8 @@ Data Annotations with extra attributes, Audit Info config, Generics
 
 **FEATURES:**
 
-#### 1. **UnPluralize** method from DbContext for Table naming convention
+#### 1. **UnPluralize** - `RemovePluralizingTableNameConvention`
+Keeps table names singular in DB like Entities classes are while DbSets remains in plural.
 
 #### 2. ANNOTATIONS Extensions  
 are made to avoid using FluentAPI and keep all Db configs in a single place on Entity - makes it more clear and simple / DRY principle)
