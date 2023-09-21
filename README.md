@@ -8,7 +8,7 @@ Data Annotations with extra attributes, Audit Info config, Generics.
 Keeps table names singular in DB like Entities classes are while DbSets remains in plural.
 
 #### 2. ANNOTATIONS Extensions  
-are made to avoid using FluentAPI and keep all Db configs in a single place on Entity - makes it more clear and simple / DRY principle)
+are made to avoid using FluentAPI and keep all Db configs in a single place on Entity - makes it more clear and simple / DRY principle)  
 Implemented with method `ConfigureExtendedAnnotations` on ***modelBuilder*** called from *OnModelCreating*.
     
 -New Attributes from the library:  
