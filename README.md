@@ -16,12 +16,12 @@ Data Annotations with extra attributes, Audit Info config, Generics
 `[ForeignKeyExtension(DeleteBehavior.)]` - extends ForeignKey attribute by adding option to set DeleteBehavior  
 `                                   .NoAction` - sometimes needed to avoid fk cascade multiple paths and cycles)
 
+
 -Native ones from EF are:  
-`[Key]`  
-`[DatabaseGenerated()]`  
-`[Column()]`  
-`[Required]`  
-`[MaxLength(255)]`  
-`[Precision(20, 4)]`  
-`[ForeignKey(FkName)]`  
-`[NotMapped]`  
+| Attributes    | Attributes              |
+| ------------- | ----------------------- |
+| `[Key]`       | `[DatabaseGenerated()]` |
+| `[Column()]`  | `[MaxLength(255)]`      |
+| `[Required]`  | `[Precision(20, 4)]`    |
+| `[NotMapped]` | `[ForeignKey(FkName)]`  |
+| `[Timestamp]` | `[ConcurrencyCheck]`    |
