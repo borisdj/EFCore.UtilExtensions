@@ -17,7 +17,7 @@ Implemented with method `ConfigureExtendedAnnotations` on ***modelBuilder*** cal
 | `[Index()]`                             | enables configuring Index on one or several columns            |
 | `[UniqueIndex()]`                       | enables configuring Unique Index on one or several columns     |
 | `[DefaultValue(object)]  `              | sets Db defualt value                                          |
-| `[DefaultValueSql(("getdate()")]`       | sets Db defualt value with Sql                                 |
+| `[DefaultValueSql("getdate()")]`        | sets Db defualt value with Sql                                 |
 | `[ForeignKeyExtension(DeleteBehavior.)]`| extends FK attribute, adds option to set DeleteBehavior        |
 | `             DeleteBehavior.NoAction`  | sometimes needed to avoid fk cascade multiple paths and cycles |
 
