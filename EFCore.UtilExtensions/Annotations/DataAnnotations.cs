@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
 
-namespace EFCore.UtilExtensions;
+namespace EFCore.UtilExtensions.Annotations;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 public class IndexExtensionAttribute : Attribute // 'IndexAttribute' already exist on class so to avoid ambiguous reference it is named 'IndexExtension', extension being sufix

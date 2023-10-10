@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace EFCore.UtilExtensions;
+namespace EFCore.UtilExtensions.Annotations;
 
-public static class DataAnnotationsExtended
+public static class DataAnnotationsExtensions
 {
     public static void ConfigureExtendedAnnotations(this ModelBuilder modelBuilder)
     {
