@@ -12,7 +12,7 @@ namespace EFCore.UtilExtensions.Test
 
             using var context = new TestContext(ContextOptions.GetOptions());
 
-            context.ItemHistories.RemoveRange(context.ItemHistories);
+            context.ItemDetails.RemoveRange(context.ItemDetails);
             context.Items.RemoveRange(context.Items);
             context.ItemCategories.RemoveRange(context.ItemCategories);
             context.SaveChanges();
@@ -36,9 +36,9 @@ namespace EFCore.UtilExtensions.Test
                     CustomDescription = i % 2 == 0 ? "" : "nn" + i,
                     Price = 10 * i,
                     ItemCategoryId = itemCategory.Id,
-                    ItemHistories = new List<ItemHistory> { 
-                        new ItemHistory { ItemHistoryId = Guid.NewGuid(), Price = 0 }, 
-                        new ItemHistory { ItemHistoryId = Guid.NewGuid(), Price = 10 * i, Remark = "Init" } }
+                    ItemDetails = new List<ItemDetail> { 
+                        new ItemDetail { Id = Guid.NewGuid(), Price = 0 }, 
+                        new ItemDetail { Id = Guid.NewGuid(), Price = 10 * i, Remark = "Init" } }
                 };
                 entities.Add(entity);
             }
