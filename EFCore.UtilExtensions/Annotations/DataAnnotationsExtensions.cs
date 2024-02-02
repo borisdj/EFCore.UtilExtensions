@@ -11,7 +11,7 @@ public static class DataAnnotationsExtensions
 {
     public static void ConfigureExtendedAnnotations(this ModelBuilder modelBuilder)
     {
-        var entityTypes = modelBuilder.Model.GetEntityTypes();
+        var entityTypes = modelBuilder.Model.GetEntityTypes().Where(a => !a.IsOwned());
         foreach (var entityType in entityTypes)
         {
             var indexAttributeGroupsProperties = new Dictionary<string, List<string>>();

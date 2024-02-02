@@ -1,9 +1,13 @@
-using EFCore.UtilExtensions.Annotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 
-namespace EFCore.UtilExtensions.Test;
+namespace EFCore.UtilExtensions.Tests;
+
+public static class DbSchema
+{
+    public const string Util = "util";
+}
 
 public static class ContextOptions
 {

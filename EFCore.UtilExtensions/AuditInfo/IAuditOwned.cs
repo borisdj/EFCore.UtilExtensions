@@ -6,53 +6,53 @@ namespace EFCore.UtilExtensions.AuditInfo;
 
 public interface IAuditOwned
 {
-    Audit Audit { get; set; }
+    Audit? Audit { get; set; }
 }
 
 public interface IAuditCreateOwned
 {
-    AuditCreate AuditCreate { get; set; }
+    AuditCreate? AuditCreate { get; set; }
 }
 
 public interface IAuditExtOwned
 {
-    AuditExt AuditExt { get; set; }
+    AuditExt? AuditExt { get; set; }
 }
 
 [Owned]
 public class Audit : IAudit // IAuditFlat (TODO consider)
 {
-    [DefaultValue("")]
-    public string ChangedBy { get; set; } = null!;
+    //[DefaultValue("")]
+    public string? ChangedBy { get; set; }// = null!;
 
     [DefaultValueSql("getdate()")]
-    public DateTime ChangedTime { get; set; }
+    public DateTime? ChangedTime { get; set; }
 
 
-    [DefaultValue(1)]
-    public int RowVersion { get; set; }
+    //[DefaultValue(1)]
+    public int? RowVersion { get; set; }
     public string? ChangeHistory { get; set; }
 }
 
 [Owned]
 public class AuditCreate : IAuditCreate
 {
-    [DefaultValue("")]
-    public string CreatedBy { get; set; } = null!;
+    //[DefaultValue("")]
+    public string? CreatedBy { get; set; } = null!;
 
-    [DefaultValueSql("getdate()")]
-    public DateTime CreatedTime { get; set; }
+    //[DefaultValueSql("getdate()")]
+    public DateTime? CreatedTime { get; set; }
 }
 
 [Owned]
 public class AuditExt : IAuditExt // Ext - Extended
 {
-    public string CreatedBy { get; set; } = null!;
-    public DateTime CreatedTime { get; set; }
+    public string? CreatedBy { get; set; }// = null!;
+    public DateTime? CreatedTime { get; set; }
 
-    public string ChangedBy { get; set; } = null!;
-    public DateTime ChangedTime { get; set; }
+    public string? ChangedBy { get; set; }// = null!;
+    public DateTime? ChangedTime { get; set; }
 
-    public int RowVersion { get; set; }
+    public int? RowVersion { get; set; }
     public string? ChangeHistory { get; set; }
 }

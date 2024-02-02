@@ -1,6 +1,7 @@
+using EFCore.UtilExtensions.Tests.Entities;
 using Xunit;
 
-namespace EFCore.UtilExtensions.Test
+namespace EFCore.UtilExtensions.Tests
 {
     public class EFCoreUtilTest
     {

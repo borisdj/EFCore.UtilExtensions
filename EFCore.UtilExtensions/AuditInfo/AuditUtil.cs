@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -62,7 +61,7 @@ public static class AuditUtil
         if (!HasAudit(entityType))
             return;
 
-        List<PropertyInfo> propertyInfos = null;
+        List<PropertyInfo>? propertyInfos = null;
 
         if (entities == null || entities.Count == 0)
         {
