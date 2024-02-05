@@ -1,10 +1,12 @@
+using System.ComponentModel;
+
 namespace EFCore.UtilExtensions.Tests.Enums;
 
 public enum ItemType
 {
-    [System.ComponentModel.Description("Physical")]
+    [Description("Physical")] // can have Desc different then enum item
     Physical = 1,
 
-    [System.ComponentModel.Description("Digital")]
+    [Description("Digital")]
     Digital = 2
 }

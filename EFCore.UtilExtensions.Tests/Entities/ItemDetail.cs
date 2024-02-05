@@ -11,7 +11,7 @@ public class ItemDetail : IEntityId, IAuditOwned
     [Column(nameof(ItemDetail) + nameof(Id))]
     public Guid Id { get; set; }
 
-    public int ItemId { get; set; }
+    public Guid ItemId { get; set; }
     public virtual Item Item { get; set; } = null!;
 
     //default Precision is (18, 2)

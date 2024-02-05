@@ -31,7 +31,7 @@ namespace EFCore.UtilExtensions.Tests
             {
                 var entity = new Item
                 {
-                    //ItemId = i,
+                    Id = Guid.NewGuid(),
                     Name = "Name " + i,
                     Code = "c " + i,
                     CustomDescription = i % 2 == 0 ? "" : "nn" + i,

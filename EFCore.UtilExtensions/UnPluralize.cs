@@ -1,5 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FastMember;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using System.Linq;
+using System.Reflection;
+using System;
+using EFCore.UtilExtensions.Annotations;
 
 namespace EFCore.UtilExtensions;
 
