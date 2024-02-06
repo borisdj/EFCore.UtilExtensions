@@ -8,8 +8,10 @@ namespace EFCore.UtilExtensions.Tests;
 public class TestContext : DbContext
 {
     //DB Structure
-    // ItemType        -|
-    // ItemCategory    -|-  Item    --  ItemDetail
+    // ItemType --------|
+    // ItemCategory ----|
+    //                  Item ---|
+    //                          ItemDetail
 
     // Default schema
     public DbSet<ItemType> ItemTypes { get; set; } = null!; // ENUM
@@ -26,6 +28,7 @@ public class TestContext : DbContext
     public TestContext(DbContextOptions options) : base(options)
     {
         Database.EnsureCreated();
+        DbSeed.SyncEnumEntities(this);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
