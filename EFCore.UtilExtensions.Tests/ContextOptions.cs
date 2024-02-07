@@ -36,9 +36,7 @@ public static class ContextOptions
 
         var connectionString = GetSqlServerConnectionString(databaseName);
 
-        optionsBuilder.UseSqlServer(connectionString, opt =>
-        {
-        });
+        optionsBuilder.UseSqlServer(connectionString, opt => { });
 
         if (dbInterceptors?.Any() == true)
         {

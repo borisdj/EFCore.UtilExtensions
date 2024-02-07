@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EFCore.UtilExtensions.Tests.Entities;
 
 [EnumType(typeof(Enums.ItemType))]
-public class ItemType : IEnumId
+public class ItemType : IEnum
 {
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
     [Column(nameof(ItemType) + nameof(Id))]
@@ -14,5 +14,8 @@ public class ItemType : IEnumId
 
     [Required]
     [MaxLength(50)]
-    public string Name { get; set; }
+    public string Name { get; set; } = null!;
+
+    [MaxLength(255)]
+    public string? Description { get; set; }
 }

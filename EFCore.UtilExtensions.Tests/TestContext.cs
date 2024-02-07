@@ -2,6 +2,7 @@ using EFCore.UtilExtensions.Annotations;
 using EFCore.UtilExtensions.AuditInfo;
 using EFCore.UtilExtensions.Tests.Entities;
 using Microsoft.EntityFrameworkCore;
+using NPOI.POIFS.FileSystem;
 
 namespace EFCore.UtilExtensions.Tests;
 
@@ -49,8 +50,10 @@ public class TestContext : DbContext
 
         modelBuilder.ConfigureExtendedAnnotations();
 
+        //modelBuilder.Entity<Audit>().Property(a => a.ChangedBy).Metadata.IsNullable = false;
+
         // FluentAPI equivalent of Native and Extended Annotations:
-        
+
         modelBuilder.Entity<ItemType>().HasKey(a => a.Id); // is set by default with EFCore naming convention
         modelBuilder.Entity<ItemType>().Property(a => a.Id).ValueGeneratedNever(); // is set by default with EFCore naming convention so here we disable it
 

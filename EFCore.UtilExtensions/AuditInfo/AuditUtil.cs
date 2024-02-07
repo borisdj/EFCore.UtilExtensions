@@ -96,7 +96,7 @@ public static class AuditUtil
         bool isIAuditCreate = typeof(IAuditCreate).IsAssignableFrom(entityType);
 
         string primaryKeyText = entities[0] is IEntityId ? nameof(IEntityId.Id)
-            : entities[0] is IEnumId ? nameof(IEnumId.Id) : Unproxy(entityType).Name + "Id";
+            : entities[0] is IEnum ? nameof(IEnum.Id) : Unproxy(entityType).Name + "Id";
 
         TypeAccessor accessor = TypeAccessor.Create(entityType);
         bool isUpdate = previousEntities != null;
