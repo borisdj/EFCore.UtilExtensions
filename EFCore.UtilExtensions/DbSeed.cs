@@ -1,12 +1,12 @@
-﻿using FastMember; // check with FastProperty -_- 
+﻿using EFCore.UtilExtensions.Annotations;
+using EFCore.UtilExtensions.AuditInfo;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
-using System;
-using EFCore.UtilExtensions.Annotations;
-using EFCore.UtilExtensions.AuditInfo;
-using System.Data;
-using System.Collections.Generic;
+using System.Threading; // Async
 
 namespace EFCore.UtilExtensions;
 
@@ -24,14 +24,13 @@ public static class DbSeed
         foreach (var enumEntityType in enumEntityTypes)
         {
             Type type = enumEntityType.entityType.ClrType;
-            TypeAccessor accessor = TypeAccessor.Create(type);
 
             var enumType = enumEntityType.enumType;
             if (enumType == null)
                 continue;
-            var enumValues = EnumExtension.ToList(enumType).Select(a =>
+            var enumsValues = EnumExtension.ToList(enumType).Select(a =>
             {
-                Object enumObject = accessor.CreateNew();
+                Object? enumObject = Activator.CreateInstance(type);
                 if (enumObject is IEnum enumObjectEnum)
                 {
                     enumObjectEnum.Id = a.Id;
@@ -39,55 +38,48 @@ public static class DbSeed
                     enumObjectEnum.Description = a.Description;
                 }
                 // previously:
-                //accessor[enumObject, "Id"] = a.Id; //accessor[e, $"{type.Name}Id"] = (int)a[0];
-                //accessor[enumObject, "Name"] = a.Description;
-                return enumObject;
+                //accessor[enumObject, "Id"] = a.Id; //accessor[e, $"{type.Name}Id"] = (int)a[0]; // (using FastMember;) TypeAccessor accessor = TypeAccessor.Create(type); 
+                //accessor[enumObject, "Name"] = a.Description; //  enumObject =  accessor.CreateNew();
+                return enumObject as IEnum;
             }).ToList();
 
-            //var codeValuesEnum = codeValues as IEnum;
+            MethodInfo? contextSetMethod = typeof(DbContext).GetMethod(nameof(DbContext.Set), BindingFlags.Public | BindingFlags.Instance, null, Array.Empty<Type>(), null);
+            if (contextSetMethod == null)
+                continue; //added to omit null warning in the code below
 
-            MethodInfo? dbSetMethodInfo = typeof(DbContext).GetMethod(nameof(DbContext.Set), BindingFlags.Public | BindingFlags.Instance, null, Array.Empty<Type>(), null);
-            if (dbSetMethodInfo == null)
-                continue;
+            MethodInfo genericSetMethodInfo = contextSetMethod.MakeGenericMethod(type);
 
-            /*dynamic method = dbSetMethodInfo.MakeGenericMethod(typeof(object));
-            dynamic dbSet = method.Invoke(context, null);
-            var record = Activator.CreateInstance(type);*/
+            IQueryable<IEnum> queryable = ((IQueryable)genericSetMethodInfo.Invoke(context, null)).Cast<IEnum>();
+            var entitesInDb = queryable.ToList();
 
-            MethodInfo? methodInfo = typeof(DbContext).GetMethod(nameof(DbContext.Set), BindingFlags.Public | BindingFlags.Instance, null, Array.Empty<Type>(), null);
-            if (dbSetMethodInfo == null)
-                continue;
-            MethodInfo genericMethodInfo = methodInfo?.MakeGenericMethod(type);
-            IQueryable<IEnum> queryable = ((IQueryable)genericMethodInfo.Invoke(context, null)).Cast<IEnum>();
-            var lit = queryable.ToList();
-
-            //context.AddRange(enumValues);
-            //context.SaveChanges();
-            /*if (dbSet != null)
+            List<IEnum>? enumsToAdd = new List<IEnum>();
+            List<IEnum>? enumsToUpdate = new List<IEnum>();
+            if (entitesInDb != null && entitesInDb is List<IEnum>) // List<IEnumBase>
             {
-                MethodInfo? methodToList = typeof(DbSet).GetMethod("ToList");
-                methodToList = methodToList?.MakeGenericMethod(typeof(object));
-                if (methodToList is not null)
+                List<IEnum> enumsInDb = entitesInDb;
+                foreach (var enumValue in enumsValues)
                 {
-                    var list = methodToList.Invoke(dbSet, null);
+                    var enumInDb = enumsInDb.SingleOrDefault(a => a.Id == enumValue.Id);
+                    if (enumInDb != null)
+                    {
+                        if (enumInDb.Name != enumValue.Name || enumInDb.Description != enumValue.Description)
+                        {
+                            enumInDb.Name = enumValue.Name;
+                            enumInDb.Description = enumValue.Description;
+                            enumsToUpdate.Add(enumInDb);
+                        }
+                    }
+                    else
+                    {
+                        enumsToAdd.Add(enumValue);
+                    }
                 }
-            }*/
+            }
 
-            /*foreach (var row in list)
-            {
-                    
-            }*/
-
-            //newCodeValues = codeValuesEnum.Where();
-
-            /*
-            MethodInfo contextSetMethod = typeof(DbContext).GetMethod(nameof(DbContext.Set), BindingFlags.Public | BindingFlags.Instance).MakeGenericMethod(type);
-            var set = contextSetMethod.Invoke(context, null);// as IQueryable;
-            var dbValues = set.ToDynamicList();
-
-            context.RemoveRange(dbValues);
-            context.AddRange(codeValues);///Warning if cascade delete on enum fk when deleting all entities are deleted for missing enums
-            */
+            context.AddRange(enumsToAdd);
+            //context.RemoveRange(enumsToRemove); // Warning if Enum FK has CascadeDelete then all entities are deleted for removed enums
+                                                  // Better to use NoAction or Restrict
+            context.SaveChanges();
         }
     }
 }

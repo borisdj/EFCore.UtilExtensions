@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace EFCore.UtilExtensions;
 

@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using EFCore.UtilExtensions.Annotations;
 using EFCore.UtilExtensions.AuditInfo;
+using EFCore.UtilExtensions.Tests.Enums;
 
 namespace EFCore.UtilExtensions.Tests.Entities;
 
@@ -30,6 +31,10 @@ public class Item : IEntityId, IAuditOwned, ISoftDelete
 
     [DefaultValue(true)]
     public bool Active { get; set; }
+
+    [ForeignKeyExtension(DeleteBehavior.NoAction)]
+    public int ItemTypeId { get; set; }
+    public virtual ItemType ItemType { get; set; } = null!;
 
     [ForeignKeyExtension(DeleteBehavior.NoAction)]
     public Guid? ItemCategoryId { get; set; }

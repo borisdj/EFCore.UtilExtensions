@@ -36,6 +36,7 @@ namespace EFCore.UtilExtensions.Tests
                     Code = "c " + i,
                     CustomDescription = i % 2 == 0 ? "" : "nn" + i,
                     Price = 10 * i,
+                    ItemTypeId = (int)Enums.ItemType.Physical,
                     ItemCategoryId = itemCategory.Id,
                     ItemDetails = new List<ItemDetail> { 
                         new ItemDetail { Id = Guid.NewGuid(), Price = 0 }, 

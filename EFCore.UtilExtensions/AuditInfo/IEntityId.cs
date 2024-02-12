@@ -9,10 +9,10 @@ public interface IId<T>
 
 public interface IEntityId : IId<Guid> { }
 
-public interface IEntityIdN : IId<int> { }      // IEntityId + 'N' (iNt; Number - Numberic)
+public interface IEntityIdN : IId<int> { }       // IEntityId + 'N' (iNt; Number - Numberic)
 
-public interface IEntityIdN64 : IId<long> { }   // IEntityId + 'N64' (Int64 - long)
+public interface IEntityIdN64 : IId<long> { }    // IEntityId + 'N64' (Int64 - long)
 
-public interface IEntityIdDec : IId<decimal> { }// IEntityId + 'D' (Decimal)
+public interface IEntityIdDec : IId<decimal> { } // IEntityId + 'D' (Decimal)
 
-public interface IEntityIdS : IId<string> { }   // IEntityId + 'S' (String)
+public interface IEntityIdS : IId<string> { }    // IEntityId + 'S' (String)

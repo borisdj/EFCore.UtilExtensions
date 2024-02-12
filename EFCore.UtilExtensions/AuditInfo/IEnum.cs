@@ -2,7 +2,7 @@
 
 namespace EFCore.UtilExtensions.AuditInfo;
 
-public interface IEnum : IEntityIdN, IName, IDescription { }
+public interface IEnum : IEnumBase, IDescription { }
 
 public interface IEnumBase : IEntityIdN, IName { }
 

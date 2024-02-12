@@ -12,6 +12,7 @@ public class ItemDetail : IEntityId, IAuditOwned
     public Guid Id { get; set; }
 
     public Guid ItemId { get; set; }
+    [ForeignKey(nameof(ItemId))]
     public virtual Item Item { get; set; } = null!;
 
     //default Precision is (18, 2)
