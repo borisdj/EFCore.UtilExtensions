@@ -7,7 +7,7 @@ namespace EFCore.UtilExtensions.Tests.Entities;
 
 //[Index(nameof(Name), nameof(Number), IsUnique = true, )] // Alternatively for multiple Index
 //[Index(new string[] { nameof(Name), nameof(Number) }, IsUnique = true, Name = "ItemCategory_Unique_Index")] // Alternatively for multiple Index
-public partial class ItemCategory : IEntityId
+public partial class ItemCategory : IEntityId // Sample with direct Audit properties, Not in Owned class
 {
     //[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)] // not required since property named 'TableNameId' or just 'Id' / 'ID' is PK-PrimaryKey and Identity(AutoIncrement) by convention (default)
     [Column(nameof(ItemCategory) + nameof(Id))]
@@ -22,7 +22,7 @@ public partial class ItemCategory : IEntityId
     [UniqueIndex("U1")]
     public string? Number { get; set; }// = null!;
 }
-public partial class ItemCategory : IAudit, ISoftDelete
+public partial class ItemCategory : IAudit, ISoftDelete // here they are added via Partial class, but could simple be all in main class
 {
     // IAudit
     [DefaultValue("")]

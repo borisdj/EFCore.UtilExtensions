@@ -3,9 +3,15 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 
 namespace EFCore.UtilExtensions;
+
+public class EnumObject
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+}
 
 public static class EnumExtension
 {
@@ -73,14 +79,6 @@ public static class EnumExtension
         });
         return dict;
     }
-
-    public class EnumObject
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-    }
-
     private static void ThrowExceptionIfNotEnumType(Type enumType)
     {
         if (!enumType.IsEnum)
