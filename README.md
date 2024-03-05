@@ -1,8 +1,8 @@
 # EFCore.UtilExtensions
 Several useful addons for EF:  
-1. UnPluralizing convention config
+1. UnPluralizing convention
 1. Data Annotations with extra attributes,
-2. Audit Info config,
+2. Audit Info config and EntityId interface,
 3. Generics.
 
 **FEATURES:**
