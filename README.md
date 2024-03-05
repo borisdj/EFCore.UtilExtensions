@@ -10,7 +10,7 @@ Several useful addons for EF:
 Keeps table names singular in DB like Entities classes are while DbSets remains in plural.
 
 #### 2. ANNOTATIONS Extensions  
-are made to avoid using FluentAPI and keep all Db configs in a single place on Entity  
+Are made to avoid using FluentAPI and keep all Db configs in a single place on Entity  
 (makes it more clear and simple - [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle)  
 Implemented with method `ConfigureExtendedAnnotations` on ***modelBuilder*** called from *OnModelCreating*.
     
