@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace EFCore.UtilExtensions;
+namespace EFCore.UtilExtensions.Entity;
 
 public class EnumObject
 {

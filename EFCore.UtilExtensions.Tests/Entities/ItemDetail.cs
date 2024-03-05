@@ -1,5 +1,6 @@
 using EFCore.UtilExtensions.Annotations;
 using EFCore.UtilExtensions.AuditInfo;
+using EFCore.UtilExtensions.Entity;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EFCore.UtilExtensions.Tests.Entities;

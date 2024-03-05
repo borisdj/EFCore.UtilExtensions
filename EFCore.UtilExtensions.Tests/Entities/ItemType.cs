@@ -1,5 +1,5 @@
 using EFCore.UtilExtensions.Annotations;
-using EFCore.UtilExtensions.AuditInfo;
+using EFCore.UtilExtensions.Entity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EFCore.UtilExtensions.AuditInfo;
+namespace EFCore.UtilExtensions.Entity;
 
 public interface IEnum : IEnumBase, IDescription { }
 

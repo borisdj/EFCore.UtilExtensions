@@ -1,4 +1,5 @@
 ﻿using System;
+using EFCore.UtilExtensions.Entity;
 
 namespace EFCore.UtilExtensions.AuditInfo;
 

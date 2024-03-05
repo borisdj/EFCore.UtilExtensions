@@ -1,5 +1,6 @@
 using EFCore.UtilExtensions.Annotations;
 using EFCore.UtilExtensions.AuditInfo;
+using EFCore.UtilExtensions.Entity;
 using EFCore.UtilExtensions.Tests.Entities;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,5 +1,4 @@
 ﻿using EFCore.UtilExtensions.Annotations;
-using EFCore.UtilExtensions.AuditInfo;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,16 +7,18 @@ using System.Linq;
 using System.Reflection;
 using System.Threading; // Async
 
-namespace EFCore.UtilExtensions;
+namespace EFCore.UtilExtensions.Entity;
 
 public static class DbSeed
 {
     public static void SyncEnumEntities(DbContext context)
     {
         var enumEntityTypes = context.Model.GetEntityTypes()
-            .Select(e => new { 
-                entityType = e, 
-                enumType = e.ClrType.GetCustomAttribute<EnumTypeAttribute>()?.Type })
+            .Select(e => new
+            {
+                entityType = e,
+                enumType = e.ClrType.GetCustomAttribute<EnumTypeAttribute>()?.Type
+            })
             .Where(a => a.enumType != null)
             .ToList();
 
@@ -30,7 +31,7 @@ public static class DbSeed
                 continue;
             var enumsValues = EnumExtension.ToList(enumType).Select(a =>
             {
-                Object? enumObject = Activator.CreateInstance(type);
+                object? enumObject = Activator.CreateInstance(type);
                 if (enumObject is IEnum enumObjectEnum)
                 {
                     enumObjectEnum.Id = a.Id;
@@ -78,7 +79,7 @@ public static class DbSeed
 
             context.AddRange(enumsToAdd);
             //context.RemoveRange(enumsToRemove); // Warning if Enum FK has CascadeDelete then all entities are deleted for removed enums
-                                                  // Better to use NoAction or Restrict
+            // Better to use NoAction or Restrict
             context.SaveChanges();
         }
     }
