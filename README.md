@@ -6,6 +6,8 @@ Several useful addons for EF:
 3. Audit Info config,
 4. Generics.
 
+*Note: *Still in progres..*
+
 **FEATURES:**
 
 #### 1. **UnPluralize** - `RemovePluralizingTableNameConvention`
