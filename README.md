@@ -1,5 +1,5 @@
 # EFCore.UtilExtensions
-Several useful addons for EF:  
+Several useful addons for EF (Entity Framework Core):  
 1. UnPluralizing convention,
 1. Data Annotations with extra attributes,
 2. EntityId and Enum interface,
