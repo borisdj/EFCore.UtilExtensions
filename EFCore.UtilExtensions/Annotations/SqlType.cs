@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Reflection.Emit;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
-namespace EFCore.UtilExtensions;
+﻿namespace EFCore.UtilExtensions;
 
 public enum SqlType
 {

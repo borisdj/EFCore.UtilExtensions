@@ -1,10 +1,9 @@
+using EFCore.UtilExtensions.Annotations;
+using EFCore.UtilExtensions.AuditInfo;
+using EFCore.UtilExtensions.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EFCore.UtilExtensions.Annotations;
-using EFCore.UtilExtensions.AuditInfo;
-using EFCore.UtilExtensions.Tests.Enums;
-using EFCore.UtilExtensions.Entity;
 
 namespace EFCore.UtilExtensions.Tests.Entities;
 

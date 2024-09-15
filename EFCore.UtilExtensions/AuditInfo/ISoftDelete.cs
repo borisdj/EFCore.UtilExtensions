@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EFCore.UtilExtensions.AuditInfo;
+﻿namespace EFCore.UtilExtensions.AuditInfo;
 
 public interface ISoftDelete
 {

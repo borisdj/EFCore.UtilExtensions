@@ -39,8 +39,8 @@ namespace EFCore.UtilExtensions.Tests
                     ItemTypeId = (int)Enums.ItemType.Physical,
                     ItemCategoryId = itemCategory.Id,
                     ItemDetails = new List<ItemDetail> { 
-                        new ItemDetail { Id = Guid.NewGuid(), Price = 0 }, 
-                        new ItemDetail { Id = Guid.NewGuid(), Price = 10 * i, Remark = "Init" } }
+                        new() { Id = Guid.NewGuid(), Price = 0 }, 
+                        new() { Id = Guid.NewGuid(), Price = 10 * i, Remark = "Init" } }
                 };
                 entities.Add(entity);
             }

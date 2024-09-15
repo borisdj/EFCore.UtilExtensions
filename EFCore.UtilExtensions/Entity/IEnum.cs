@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EFCore.UtilExtensions.Entity;
+﻿namespace EFCore.UtilExtensions.Entity;
 
 public interface IEnum : IEnumBase, IDescription { }
 

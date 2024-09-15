@@ -7,9 +7,6 @@ using System.Reflection;
 using FastMember;
 using EFCore.UtilExtensions.Entity;
 
-//using Swashbuckle.AspNetCore.SwaggerGen;
-//using Newtonsoft.Json;
-
 namespace EFCore.UtilExtensions.AuditInfo;
 
 public class IgnoreAuditInfoAttribute : Attribute { }
