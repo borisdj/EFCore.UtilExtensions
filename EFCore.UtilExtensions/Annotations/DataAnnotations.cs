@@ -20,12 +20,17 @@ public class IndexExtensionAttribute : Attribute // 'IndexAttribute' already exi
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
 public class UniqueIndexAttribute : Attribute
 {
-    public string Group { get; set; }
+    public string? Group { get; set; }
+    public string? Filter { get; set; }
+
+    protected bool HasFilter => Filter != null;
 
     /// <param name="group"> for setting grouped index (same 'group') on multiple columns</param>
-    public UniqueIndexAttribute(string? group = null)
+    /// <param name="filter"> for setting filtered index, value to be like: "[Deleted] = 0"</param>
+    public UniqueIndexAttribute(string? group = null, string? filter = null)
     {
         Group = group;
+        Filter = filter;
     }
 }
 

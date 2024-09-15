@@ -21,7 +21,7 @@ public class ItemDetail : IEntityId, IAuditOwned
 
     public string? Remark { get; set; }
 
-    [Column(TypeName = (nameof(DateTime)))] // Column to be of DbType 'datetime' instead of default 'datetime2'
+    [Column(TypeName = (nameof(DateTime)))] // Column to be of older DbType 'datetime' instead of default 'datetime2'
     [DefaultValueSql("getdate()")]
     public DateTime? TimeUpdated { get; set; }
 

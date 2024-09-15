@@ -16,6 +16,7 @@ public static class DataAnnotationsExtensions
         {
             var indexAttributeGroupsProperties = new Dictionary<string, List<string>>();
             var uniqueIndexAttributeGroupsProperties = new Dictionary<string, List<string>>();
+            var uniqueIndexAttributeGroupsFilter = new Dictionary<string, string>();
 
             foreach (var property in entityType.GetProperties())
             {
@@ -46,7 +47,11 @@ public static class DataAnnotationsExtensions
                 {
                     if (uniqueIndexAttribute.Group == null)
                     {
-                        modelBuilder.Entity(entityType.ClrType).HasIndex(property.Name).IsUnique();
+                        var uniqueIndex = modelBuilder.Entity(entityType.ClrType).HasIndex(property.Name).IsUnique();
+                        if (uniqueIndexAttribute.Filter == null)
+                        {
+                            uniqueIndex.HasFilter(uniqueIndexAttribute.Filter);
+                        }
                     }
                     else // when Group is set then multi-column index set after loop from Dict
                     {
@@ -57,6 +62,10 @@ public static class DataAnnotationsExtensions
                         else
                         {
                             uniqueIndexAttributeGroupsProperties.Add(uniqueIndexAttribute.Group, new List<string> { property.Name });
+                            if (uniqueIndexAttribute.Filter != null)
+                            {
+                                uniqueIndexAttributeGroupsFilter.Add(uniqueIndexAttribute.Group, uniqueIndexAttribute.Filter);
+                            }
                         }
                     }
                 }
@@ -93,7 +102,11 @@ public static class DataAnnotationsExtensions
             }
             foreach (var uniqueIndexAttributeGroup in uniqueIndexAttributeGroupsProperties)
             {
-                modelBuilder.Entity(entityType.ClrType).HasIndex(uniqueIndexAttributeGroup.Value.ToArray()).IsUnique();
+                var uniqueIndexGrouped = modelBuilder.Entity(entityType.ClrType).HasIndex(uniqueIndexAttributeGroup.Value.ToArray()).IsUnique();
+                if (uniqueIndexAttributeGroupsFilter.ContainsKey(uniqueIndexAttributeGroup.Key))
+                {
+                    uniqueIndexGrouped.HasFilter(uniqueIndexAttributeGroupsFilter[uniqueIndexAttributeGroup.Key]);
+                }
             }
         }
     }
