@@ -6,6 +6,9 @@ Several useful addons for EF (Entity Framework Core):
 3. Audit Info config,
 4. Generics.
 
+Logo  
+<img src="EFCoreUtilLogo.png" height=60>
+
 *Note: *Still in progres...*
 
 Also take a look into others packages:</br>
