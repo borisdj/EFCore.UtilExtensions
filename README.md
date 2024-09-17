@@ -21,8 +21,17 @@ Also take a look into others packages:</br>
 
 **FEATURES:**
 
-#### 1. **UnPluralize** - `RemovePluralizingTableNameConvention`
+#### 1. **UnPluralize**
 Keeps table names singular in DB like Entities classes are while DbSets remains in plural.
+To set it up, call `RemovePluralizingTableNameConvention` from `OnModelCreating`:
+```C#
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.RemovePluralizingTableNameConvention();
+    ...
+}
+```
+
 
 #### 2. ANNOTATIONS Extensions  
 Are made to avoid using FluentAPI and keep all Db configs in a single place on Entity  
