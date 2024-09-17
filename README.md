@@ -34,6 +34,14 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     ...
 }
 ```
+NOTE: Useful for verstion prior to .Net7, mainly for .Net6, since with .Net7+ it can be achieved by overriding a method in DbContext:
+```C#
+// In DbContext
+protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+{
+    configurationBuilder.Conventions.Remove(typeof(TableNameFromDbSetConvention));
+}
+```
 
 
 #### 2. ANNOTATIONS Extensions  
