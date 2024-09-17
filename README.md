@@ -52,10 +52,10 @@ Implemented with method `ConfigureExtendedAnnotations` on ***modelBuilder*** cal
 | `             DeleteBehavior.NoAction`  | sometimes needed to avoid fk cascade multiple paths and cycles |
 
 -Native ones from EF are:  
-| Attributes                 | Attributes                   |  Attributes            |  Attributes     |
-| -------------------------- | ---------------------------- | ---------------------- | --------------- |
-| `[Table(tblName)]`         | `[Key]`                      | `[DatabaseGenerated()] | `[Owned]`       |
-| `[Column(name, typeName)]` | `[ForeignKey(FkName)]`       | `[Timestamp]`          | `[ComplexType]` |
-| `[Required]`               | `[Index(indName)]`           | `[ConcurrencyCheck]`   | `[NotMapped]`   |
-| `[MaxLength(255)]`         | `[Index(indName, IsUnique)]` | `[Precision(20, 4)]`   |                 |
+| Attributes                 | Attributes                   |  Attributes             |  Attributes     |
+| -------------------------- | ---------------------------- | ----------------------- | --------------- |
+| `[Table(tblName)]`         | `[Key]`                      | `[DatabaseGenerated()]` | `[Owned]`       |
+| `[Column(name, typeName)]` | `[ForeignKey(FkName)]`       | `[Timestamp]`           | `[ComplexType]` |
+| `[Required]`               | `[Index(indName)]`           | `[ConcurrencyCheck]`    | `[NotMapped]`   |
+| `[MaxLength(255)]`         | `[Index(indName, IsUnique)]` | `[Precision(20, 4)]`    |                 |
 
