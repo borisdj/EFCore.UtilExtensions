@@ -25,7 +25,7 @@ Also take a look into others packages:</br>
 **FEATURES:**
 
 #### 1. **UnPluralize**
-Keeps table names singular in DB like Entities classes are while DbSets remains in plural.
+Keeps table names singular in DB like Entities classes are (also keeping PascalCase) while DbSets remains in plural.
 To set it up, call `RemovePluralizingTableNameConvention` from `OnModelCreating`:
 ```C#
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -65,4 +65,6 @@ Implemented with method `ConfigureExtendedAnnotations` on ***modelBuilder*** cal
 | `[Column(name, typeName)]` | `[ForeignKey(FkName)]`       | `[Timestamp]`           | `[ComplexType]` |
 | `[Required]`               | `[Index(indName)]`           | `[ConcurrencyCheck]`    | `[NotMapped]`   |
 | `[MaxLength(255)]`         | `[Index(indName, IsUnique)]` | `[Precision(20, 4)]`    |                 |
+Notes:
+`[Precision]` is used for customizing Decimal type, default being (18, 2) meaning 18 significant digits of which 16 is for whole number and 2 decimal places.
 
