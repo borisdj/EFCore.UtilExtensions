@@ -22,6 +22,17 @@ Also take a look into others packages:</br>
 | 5  | [CsCodeGenerator](https://github.com/borisdj/CsCodeGenerator) | C# code generation based on Classes and elements |
 | 6  | [CsCodeExample](https://github.com/borisdj/CsCodeExample) | Examples of C# code in form of a simple tutorial |
 
+## Support
+If you find this project useful you can mark it by leaving a Github **Star** :star:  
+And even with community license, if you want help development, you can make a DONATION:  
+[<img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" height=28>](https://www.buymeacoffee.com/boris.dj) _ or _ 
+[![Button](https://img.shields.io/badge/donate-Bitcoin-orange.svg?logo=bitcoin):zap:](https://borisdj.net/donation/donate-btc.html)
+
+## Contributing
+Please read [CONTRIBUTING](CONTRIBUTING.md) for details on code of conduct, and the process for submitting pull requests.  
+When opening issues do write detailed explanation of the problem or feature with reproducible example.  
+Want to **Contact** for Development & Consulting: [www.codis.tech](http://www.codis.tech) (*Quality Delivery*) 
+
 **FEATURES:**
 
 #### 1. **UnPluralize**
