@@ -9,6 +9,8 @@ Several useful addons for EF (Entity Framework Core):
 Logo  
 <img src="EFCoreUtilLogo.png" height=60>
 
+[![NuGet](https://img.shields.io/npm/l/express.svg)](https://github.com/borisdj/EFCore.UtilExtensions/blob/master/LICENSE)  
+
 *Note: *Still in progres...*
 
 Also take a look into others packages:</br>
